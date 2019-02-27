@@ -1,0 +1,53 @@
+{
+    "help": {
+        "text1": "Settings",
+        "text2": "Tap to start stopwatch",
+        "text3": "Longpress to reset stopwatch",
+        "text4": "Tap to stop stopwatch",
+        "text5": "Longpress to reset stopwatch and start it again",
+        "text6": "Longpress to turn reading of time on/off",
+        "text7": "Change the reading interval between 10s/30s",
+        "text8": "Change the reading volume between low/mid/high"
+    },
+    "settings": {
+        "text1": "Settings",
+        "text2": "Language",
+        "text3": "Volume",
+        "text4": "Speach interval",
+        "text5": "Don't turnoff screen",
+        "text6": "Vibrate on tap",
+        "text7": "Speach",
+        "text8": "Vibrate at interval",
+        "text9": "Short pronunciation",
+        "text10": "Show notification"
+    },
+    "exit": {
+        "text1": "Do you want to exit?",
+        "text2": "Yes",
+        "text3": "No"
+    },
+    "shortcutHelp": {
+        "text1": "Show help"
+    },
+    "shortcutInterval": {
+        "text1": "Change interval to 30 seconds",
+        "text2": "Change interval to 10 seconds"
+    },
+    "shortcutSettings": {
+        "text1": "Show settings"
+    },
+    "stopwatchWidget": {
+        "text1": "minutes",
+        "text2": "minute",
+        "text3": "seconds",
+        "text4": "Start",
+        "text5": "Pause",
+        "text6": "Reset",
+        "text7": "and",
+        "text8": "Start",
+        "text9": "Pause",
+        "text10": "Reset",
+        "text11": "Time",
+        "text12": "Exit"
+    }
+}
