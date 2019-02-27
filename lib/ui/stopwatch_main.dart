@@ -43,25 +43,27 @@ class StopwatchMainState extends State<StopwatchMain> {
   void initState() {
     super.initState();
 
-    widget.notificationAction.nofiticationEventStream.listen((String value) {
-      switch (value) {
-        case "action_play":
-          _buttonAction(StopwatchButtonAction.playTap);
-          break;
-        case "action_pause":
-          _buttonAction(StopwatchButtonAction.pauseTap);
-          break;
-        case "action_reset":
-          _buttonAction(StopwatchButtonAction.playLongPress);
-          break;
-        // case "action_exit":
-        //   widget.notificationAction.cancel().whenComplete(() {
-        //     SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-        //   });
-        //   break;
-        default:
-      }
-    });
+    if (widget.notificationAction != null) {
+      widget.notificationAction.nofiticationEventStream.listen((String value) {
+        switch (value) {
+          case "action_play":
+            _buttonAction(StopwatchButtonAction.playTap);
+            break;
+          case "action_pause":
+            _buttonAction(StopwatchButtonAction.pauseTap);
+            break;
+          case "action_reset":
+            _buttonAction(StopwatchButtonAction.playLongPress);
+            break;
+          // case "action_exit":
+          //   widget.notificationAction.cancel().whenComplete(() {
+          //     SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+          //   });
+          //   break;
+          default:
+        }
+      });
+    }
   }
 
   @override

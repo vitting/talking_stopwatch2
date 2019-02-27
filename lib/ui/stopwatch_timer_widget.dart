@@ -202,7 +202,7 @@ class _StopwatchWidgetState extends State<StopwatchWidget> {
 
   void _updateNotification(StopwatchNotificationButtonStatus actionButtonToShow,
       StopwatchNotificationButtonStatus button1TextStatus) async {
-    if (widget.settings.showNotification) {
+    if (widget.notificationAction != null && widget.settings.showNotification) {
       await widget.notificationAction.show(
           _notificationTitle,
           "$_elapsedTimeMinutesFormatted:$_elapsedTimeSecondsFormatted",
@@ -224,7 +224,7 @@ class _StopwatchWidgetState extends State<StopwatchWidget> {
   void _setSettings(SettingsData settings) async {
     await widget.flutterTts.setVolume(settings.volume);
     await _setLanguage(settings.language);
-    if (!widget.settings.showNotification) {
+    if (widget.notificationAction != null && !widget.settings.showNotification) {
       await widget.notificationAction.cancel();
     } else {
       _updateNotification(

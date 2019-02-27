@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -42,16 +44,22 @@ class SettingsDialog extends StatelessWidget {
             SizedBox(height: 20),
 
             /// Show notification
-            SettingsSwitchRowWidget(
-              icon: Icons.notifications,
-              text: FlutterI18n.translate(context, "settings.text10"),
-              vibrate: settings.vibrate,
-              value: settings.showNotification,
-              onChanged: (bool value) async {
-                await settings.updateShowNotification(value);
-              },
-            ),
-            SizedBox(height: 20),
+            Platform.isIOS
+                ? Container()
+                : Column(
+                    children: <Widget>[
+                      SettingsSwitchRowWidget(
+                        icon: Icons.notifications,
+                        text: FlutterI18n.translate(context, "settings.text10"),
+                        vibrate: settings.vibrate,
+                        value: settings.showNotification,
+                        onChanged: (bool value) async {
+                          await settings.updateShowNotification(value);
+                        },
+                      ),
+                      SizedBox(height: 20)
+                    ],
+                  ),
 
             /// SpeakShort
             SettingsSwitchRowWidget(
@@ -76,7 +84,7 @@ class SettingsDialog extends StatelessWidget {
               },
             ),
             SizedBox(height: 20),
-            
+
             /// KeepScreenOn
             SettingsSwitchRowWidget(
               icon: MdiIcons.cellphoneScreenshot,

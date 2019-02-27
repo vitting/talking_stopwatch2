@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,7 +11,11 @@ import 'package:talking_stopwatch2/ui/stopwatch_main.dart';
 
 void main() async {
   final FlutterTts flutterTts = new FlutterTts();
-  final NotificationAction notificationAction = new NotificationAction();
+  NotificationAction notificationAction;
+
+  if (Platform.isAndroid) {
+    notificationAction = new NotificationAction();
+  }
 
   String languageCode = await SystemHelpers.getSystemLanguageCode();
   if (languageCode != "da") {
@@ -21,8 +27,11 @@ void main() async {
   if (settings.keepScreenOn) {
     SystemHelpers.setScreenOn();
   }
+  
+  if (Platform.isAndroid) {
+    await notificationAction.initialize();
+  }
 
-  await notificationAction.initialize();
   return runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: StopwatchMain(
