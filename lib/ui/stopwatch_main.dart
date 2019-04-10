@@ -69,7 +69,7 @@ class StopwatchMainState extends State<StopwatchMain> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    FlutterI18n.refresh(context, widget.settings.language);
+    FlutterI18n.refresh(context, Locale(widget.settings.language));
   }
 
   @override

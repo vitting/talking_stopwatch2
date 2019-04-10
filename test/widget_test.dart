@@ -30,7 +30,7 @@ void main() async {
         settings: settings,
         notificationAction: notificationAction),
     localizationsDelegates: [
-      FlutterI18nDelegate(false),
+      FlutterI18nDelegate(),
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate
     ],
